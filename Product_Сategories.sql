@@ -26,8 +26,8 @@ CREATE TABLE [ProductsToСategories]
 )
 
 SELECT 
-	p.[Name] AS [ProductName], 
-	C.[Name] AS СategoryName 
-FROM [Products] p
-	LEFT JOIN [ProductsToСategories] PtC ON p.[Id] = PtC.[ProductId]
-	INNER JOIN [Сategories] C ON c.[Id] = PtC.[СategoryId]
+	product.[Name] AS [ProductName], 
+	category.[Name] AS [СategoryName]
+FROM [ProductsToСategories] productToСategory
+	RIGHT JOIN [Products] product ON product.[Id] = productToСategory.[ProductId]
+	LEFT JOIN [Сategories] category ON category.[Id] = productToСategory.[СategoryId]
